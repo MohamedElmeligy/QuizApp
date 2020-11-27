@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "402338002662",
+    "firebase_url": "https://stemquizapp-f9a27.firebaseio.com",
+    "project_id": "stemquizapp-f9a27",
+    "storage_bucket": "stemquizapp-f9a27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402338002662:android:231b4bd4a2605e8860ad27",
+        "android_client_info": {
+          "package_name": "com.example.stemapp1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402338002662-rpc352fn1ni7bbpb9equ1c5inu0te6en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5IldfbSyMCHgcyu1qfRMwMfM2RPP0n3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402338002662-rpc352fn1ni7bbpb9equ1c5inu0te6en.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
