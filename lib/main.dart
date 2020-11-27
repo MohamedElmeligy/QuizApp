@@ -14,6 +14,9 @@ import './splash_screen.dart';
 import './auth_screen.dart';
 import './home_screen.dart';
 
+
+//This is an example
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
