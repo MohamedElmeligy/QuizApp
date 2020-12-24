@@ -16,6 +16,7 @@ import './home_screen.dart';
 
 
 //This is an example
+//statics branch
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
