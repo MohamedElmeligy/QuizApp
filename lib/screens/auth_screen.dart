@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import './auth.dart';
+import '../auth.dart';
 
-import './custom_dialog.dart';
+import '../components/custom_dialog.dart';
 
-import './home_screen.dart';
+import 'home_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   static const String routeName = "/AuthScreen";

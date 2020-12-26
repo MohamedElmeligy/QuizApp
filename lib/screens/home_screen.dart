@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './level_screen.dart';
+import 'level_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/HomeScreen";
