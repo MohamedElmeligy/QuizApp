@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../components/elevated_container.dart';
 import './level_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> subjects = [
+  final List<String> subjects = [
     "Physics1",
     "Physics2",
     "Physics3",
@@ -18,35 +20,36 @@ class _HomeScreenState extends State<HomeScreen> {
     "Physics6",
   ];
 
-  List<String> years = [
-    "Grade 10",
-    "Grade 11",
-    "Grade 12",
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
+    final double sh = MediaQuery.of(context).size.height;
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("Quizes APP"),
       ),
       body: GridView.builder(
+        padding:
+            EdgeInsets.symmetric(horizontal: sw * 0.025, vertical: sw * 0.03),
         itemCount: subjects.length,
         scrollDirection: Axis.vertical,
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 7,
+          mainAxisSpacing: 7,
+        ),
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => YearClass(years)),
+                MaterialPageRoute(builder: (context) => YearClass()),
               );
             },
-            child: Card(
-              color: Colors.grey,
-              child: Text(subjects[index]),
+            child: ElevatedContainer(
+              child: Center(child: Text(subjects[index])),
+              fillColor: Theme.of(context).primaryColor,
             ),
           );
         },
