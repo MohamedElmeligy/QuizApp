@@ -8,7 +8,7 @@ import 'package:intl/date_symbol_data_local.dart';
 
 import './app_theme_data.dart';
 
-import './auth.dart';
+import 'providers/auth.dart';
 
 import 'screens/splash_screen.dart';
 import 'screens/auth_screen.dart';
