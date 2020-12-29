@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/elevated_container.dart';
-import './level_screen.dart';
+import 'options_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/HomeScreen";
@@ -12,12 +12,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> subjects = [
-    "Physics1",
-    "Physics2",
-    "Physics3",
-    "Physics4",
-    "Physics5",
-    "Physics6",
+    "Chapter 1",
+    "Chapter 2",
+    "Chapter 3",
+    "Chapter 4",
+    "Chapter 5",
+    "Chapter 6",
+    "Chapter 7",
   ];
 
   @override
