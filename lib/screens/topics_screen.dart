@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/elevated_container.dart';
 
-import './quiz_screen.dart';
+import './quiz/quiz_screen.dart';
 
 class Topics extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _MyTopicsState extends State<Topics> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Quiz()),
+                  MaterialPageRoute(builder: (context) => QuizScreen()),
                 );
               },
             ),
