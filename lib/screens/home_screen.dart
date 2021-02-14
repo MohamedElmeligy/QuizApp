@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:websafe_svg/websafe_svg.dart';
+
 import '../components/elevated_container.dart';
 import './level_screen.dart';
 
@@ -12,12 +14,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> subjects = [
-    "Physics1",
-    "Physics2",
-    "Physics3",
-    "Physics4",
-    "Physics5",
-    "Physics6",
+    "Chemistry",
+    "Physics",
+    "Geology",
+    "Biology",
+    "Mathematics",
+    "Mechanics",
   ];
 
   @override
@@ -27,32 +29,38 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Quizes APP"),
+        title: Text("ST Guide"),
       ),
-      body: GridView.builder(
-        padding:
-            EdgeInsets.symmetric(horizontal: sw * 0.025, vertical: sw * 0.03),
-        itemCount: subjects.length,
-        scrollDirection: Axis.vertical,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 7,
-          mainAxisSpacing: 7,
-        ),
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => YearClass()),
+      body: Stack(
+        children: [
+          WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+          GridView.builder(
+            shrinkWrap: true,
+            padding: EdgeInsets.symmetric(
+                horizontal: sw * 0.025, vertical: sw * 0.03),
+            itemCount: subjects.length,
+            scrollDirection: Axis.vertical,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 7,
+              mainAxisSpacing: 7,
+            ),
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => YearClass()),
+                  );
+                },
+                child: ElevatedContainer(
+                  child: Center(child: Text(subjects[index],style: TextStyle(fontSize: 14),)),
+                  fillColor: Colors.white,
+                ),
               );
             },
-            child: ElevatedContainer(
-              child: Center(child: Text(subjects[index])),
-              fillColor: Theme.of(context).primaryColor,
-            ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }

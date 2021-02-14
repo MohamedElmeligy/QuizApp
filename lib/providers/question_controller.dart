@@ -18,15 +18,9 @@ class QuestionController extends GetxController
   PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = sample_data
-      .map(
-        (question) => Question(
-            id: question['id'],
-            question: question['question'],
-            options: question['options'],
-            answer: question['answer_index']),
-      )
-      .toList();
+  List<Question> _questions;
+
+  set questions(questions) => _questions = questions;
   List<Question> get questions => this._questions;
 
   bool _isAnswered = false;
@@ -45,6 +39,8 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => this._numOfCorrectAns;
 
+
+
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
@@ -57,6 +53,8 @@ class QuestionController extends GetxController
         // update like setState
         update();
       });
+    
+
 
     // start our animation
     // Once 60s is completed go to the next qn
@@ -86,7 +84,7 @@ class QuestionController extends GetxController
     update();
 
     // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 2), () {
       nextQuestion();
     });
   }

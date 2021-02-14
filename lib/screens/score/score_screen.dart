@@ -23,7 +23,9 @@ class ScoreScreen extends StatelessWidget {
                     .headline3
                     .copyWith(color: kSecondaryColor),
               ),
-              Spacer(),
+              Spacer(
+                flex: 1,
+              ),
               Text(
                 "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
                 style: Theme.of(context)
@@ -31,7 +33,12 @@ class ScoreScreen extends StatelessWidget {
                     .headline4
                     .copyWith(color: kSecondaryColor),
               ),
-              Spacer(flex: 3),
+              SizedBox(height: 50),
+              Text("Get your material to improve!",
+                  style: TextStyle(color: Colors.white)),
+              Spacer(
+                flex: 3,
+              ),
             ],
           )
         ],

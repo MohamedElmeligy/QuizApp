@@ -15,49 +15,61 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double sh = MediaQuery.of(context).size.height;
     // So that we have acccess our controller
     QuestionController _questionController = Get.put(QuestionController());
     return Stack(
+      
       children: [
         WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
         SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: ProgressBar(),
-              ),
-              SizedBox(height: kDefaultPadding),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: Obx(
-                  () => Text.rich(
-                    TextSpan(
-                      text:
-                          "Question ${_questionController.questionNumber.value}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(color: kSecondaryColor),
-                      children: [
-                        TextSpan(
-                          text: "/${_questionController.questions.length}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              .copyWith(color: kSecondaryColor),
-                        ),
-                      ],
+              Container(
+                height: sh * 0.14,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding),
+                      child: ProgressBar(),
                     ),
-                  ),
+                    SizedBox(height: kDefaultPadding),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding),
+                      child: Obx(
+                        () => Text.rich(
+                          TextSpan(
+                            text:
+                                "Question ${_questionController.questionNumber.value}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline4
+                                .copyWith(color: kSecondaryColor),
+                            children: [
+                              TextSpan(
+                                text:
+                                    "/${_questionController.questions.length}",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5
+                                    .copyWith(color: kSecondaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Divider(thickness: 1.5),
+                  ],
                 ),
               ),
-              Divider(thickness: 1.5),
-              SizedBox(height: kDefaultPadding),
-              Expanded(
+              Container(
+                height: sh * 0.73,
                 child: PageView.builder(
                   // Block swipe to next qn
                   physics: NeverScrollableScrollPhysics(),
@@ -70,7 +82,7 @@ class Body extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

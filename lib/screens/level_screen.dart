@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../components/elevated_container.dart';
+import 'package:websafe_svg/websafe_svg.dart';
 
+import '../models/subject.dart' as subjects;
+import '../components/elevated_container.dart';
 import './topics_screen.dart';
 
 class YearClass extends StatefulWidget {
@@ -22,29 +24,54 @@ class YearClassState extends State<YearClass> {
     final double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Choose your level"),
+        title: Text("Learn and Train"),
       ),
-      body: ListView.builder(
-        itemCount: years.length,
-        padding:
-            EdgeInsets.symmetric(horizontal: sw * 0.025, vertical: sw * 0.03),
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Topics()),
+      body: Stack(
+        children: [
+          WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+          ListView.builder(
+            itemCount: years.length,
+            padding: EdgeInsets.symmetric(
+                horizontal: sw * 0.025, vertical: sw * 0.03),
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  if (index == 0)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            Topics(subjects.subjects_data[0].levels[0].lessons),
+                      ),
+                    );
+                  if (index == 1)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            Topics(subjects.subjects_data[0].levels[0].lessons),
+                      ),
+                    );
+                  if (index == 2)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            Topics(subjects.subjects_data[0].levels[0].lessons),
+                      ),
+                    );
+                },
+                child: ElevatedContainer(
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  child: Container(
+                    height: sh * 0.1,
+                    child: Center(child: Text(years[index])),
+                  ),
+                ),
               );
             },
-            child: ElevatedContainer(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child: Container(
-                height: sh * 0.1,
-                child: Center(child: Text(years[index])),
-              ),
-            ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
