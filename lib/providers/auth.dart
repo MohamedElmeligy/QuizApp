@@ -80,7 +80,7 @@ class Auth with ChangeNotifier {
 }
 
 String _catchLoginError(PlatformException err) {
-  switch (err.code) {
+  switch (err.message) {
     case "ERROR_INVALIED_EMAIL":
       return "The email address is invalied, try using a different address.";
     case "ERROR_WRONG_PASSWORD":

@@ -16,12 +16,11 @@ class AuthScreen extends StatelessWidget {
   final GlobalKey<FormFieldState> _emailKey = GlobalKey<FormFieldState>();
   final GlobalKey<FormFieldState> _passwordKey = GlobalKey<FormFieldState>();
 
-  String _name;
-  String _email;
-  String _password;
-
   @override
   Widget build(BuildContext context) {
+    String _name;
+    String _email;
+    String _password;
     Size deviceSize = MediaQuery.of(context).size;
     double sh = deviceSize.height;
     double sw = deviceSize.width;
@@ -64,19 +63,18 @@ class AuthScreen extends StatelessWidget {
                   AnimatedContainer(
                     duration: Duration(milliseconds: _animationDuration),
                     height: isLogin ? 0.144 * sh : 0.750 * 0.144 * sh,
-                    child: Image.asset(
-                      'assets/images/app_icon2.png',
-                    ),
+                    child: Container(),
                   ),
                   AnimatedContainer(
                       duration: Duration(milliseconds: _animationDuration),
                       height: isLogin ? 0.064 * sh : 0.750 * 0.064 * sh,
                       child: Text(
-                        "Seyavo",
+                        "Super EDU",
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: "Signatra",
-                          fontSize: isLogin ? 0.064 * sh - 5 : 0.750 * 0.064 * sh - 5,
+                          fontSize:
+                              isLogin ? 0.064 * sh - 5 : 0.750 * 0.064 * sh - 5,
                         ),
                       )),
                   AnimatedContainer(
@@ -116,12 +114,12 @@ class AuthScreen extends StatelessWidget {
                                 width: 0.300 * sw,
                                 child: FlatButton(
                                   color: isLogin
-                                      ? Theme.of(context).primaryColor
+                                      ? Color.fromARGB(255, 37, 44, 73)
                                       : Colors.white,
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
                                       width: 1.0,
-                                      color: Theme.of(context).primaryColor,
+                                      color: Color.fromARGB(255, 37, 44, 73),
                                     ),
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(0.046 * sh / 2),
@@ -137,7 +135,7 @@ class AuthScreen extends StatelessWidget {
                                         .apply(
                                           color: isLogin
                                               ? Colors.white
-                                              : Theme.of(context).primaryColor,
+                                              : Color.fromARGB(255, 37, 44, 73),
                                         ),
                                   ),
                                   onPressed: () {
@@ -152,11 +150,11 @@ class AuthScreen extends StatelessWidget {
                                 child: FlatButton(
                                   color: isLogin
                                       ? Colors.white
-                                      : Theme.of(context).primaryColor,
+                                      : Color.fromARGB(255, 37, 44, 73),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
                                       width: 1.0,
-                                      color: Theme.of(context).primaryColor,
+                                      color: Color.fromARGB(255, 37, 44, 73),
                                     ),
                                     borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(0.046 * sh / 2),
@@ -171,7 +169,7 @@ class AuthScreen extends StatelessWidget {
                                         .bodyText2
                                         .apply(
                                           color: isLogin
-                                              ? Theme.of(context).primaryColor
+                                              ? Color.fromARGB(255, 37, 44, 73)
                                               : Colors.white,
                                         ),
                                   ),
@@ -279,7 +277,7 @@ class AuthScreen extends StatelessWidget {
                           height: 52,
                           width: double.maxFinite,
                           child: FlatButton(
-                            color: Theme.of(context).primaryColor,
+                            color: Color.fromARGB(255, 37, 44, 73),
                             shape: StadiumBorder(),
                             child: Text(
                               isLogin ? 'LOGIN' : 'SIGNUP',
@@ -297,14 +295,13 @@ class AuthScreen extends StatelessWidget {
 
                                       _staticAuthProvider.isLoading = true;
 
-                                      
-                                        if (isLogin) {
-                                          await _staticAuthProvider.login(
-                                              _email, _password);
-                                        } else {
-                                          await _staticAuthProvider.signup(
-                                              _email, _password, _name);
-                                        }
+                                      if (isLogin) {
+                                        await _staticAuthProvider.login(
+                                            _email, _password);
+                                      } else {
+                                        await _staticAuthProvider.signup(
+                                            _email, _password, _name);
+                                      }
                                     }
                                   },
                           ),
@@ -338,7 +335,7 @@ class AuthScreenBackground extends CustomPainter {
     firstWave.lineTo(sw, 0);
     firstWave.close();
 
-    paint.color = const Color(0xFFF50057);
+    paint.color = const Color.fromARGB(255, 37, 44, 73);
     canvas.drawPath(firstWave, paint);
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+
 import '../models/Questions.dart';
 import '../screens/score/score_screen.dart';
 
@@ -20,8 +22,12 @@ class QuestionController extends GetxController
 
   List<Question> _questions;
 
-  set questions(questions) => _questions = questions;
+  set questions(List<Question> questions) => _questions = questions;
   List<Question> get questions => this._questions;
+
+  PDFDocument _document = new PDFDocument();
+  set document(PDFDocument pdf) => _document = pdf;
+  PDFDocument get document => _document;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -39,8 +45,6 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => this._numOfCorrectAns;
 
-
-
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
@@ -53,8 +57,6 @@ class QuestionController extends GetxController
         // update like setState
         update();
       });
-    
-
 
     // start our animation
     // Once 60s is completed go to the next qn
@@ -64,11 +66,22 @@ class QuestionController extends GetxController
   }
 
   // // called just before the Controller is deleted from memory
-  @override
-  void onClose() {
-    super.onClose();
+  // @override
+  // void onClose() {
+  //   super.onClose();
+  //   _animationController.dispose();
+  //   _pageController.dispose();
+  // }
+
+  Future<bool> clear() async {
     _animationController.dispose();
     _pageController.dispose();
+    _questionNumber = 1.obs;
+    _numOfCorrectAns = 0;
+    Get.back();
+    Get.back();
+
+    return true;
   }
 
   void checkAns(Question question, int selectedIndex) {
@@ -89,7 +102,7 @@ class QuestionController extends GetxController
     });
   }
 
-  void nextQuestion() {
+  void nextQuestion() async {
     if (_questionNumber.value != _questions.length) {
       _isAnswered = false;
       _pageController.nextPage(
@@ -103,7 +116,8 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen());
+      document = await PDFDocument.fromAsset("assets/pdfs/test.pdf");
+      Get.to(ScoreScreen(_document));
     }
   }
 

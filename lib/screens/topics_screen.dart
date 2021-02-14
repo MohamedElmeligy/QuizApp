@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -36,13 +37,7 @@ class _MyTopicsState extends State<Topics> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          QuizScreen(widget.lessons[index].quiz),
-                    ),
-                  );
+                  Get.to(QuizScreen(widget.lessons[index].quiz));
                 },
                 child: ElevatedContainer(
                   margin: EdgeInsets.symmetric(vertical: 10),
@@ -80,12 +75,7 @@ class _MyTopicsState extends State<Topics> {
               child: Text("Take Quiz"),
               color: Theme.of(context).primaryColor,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => QuizScreen(widget.lessons[0].quiz),
-                  ),
-                );
+                Get.to(QuizScreen(widget.lessons[0].quiz));
               },
             ),
           ),

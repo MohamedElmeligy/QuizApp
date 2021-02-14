@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -48,10 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => YearClass()),
-                  );
+                  Get.to(YearClass());
                 },
                 child: ElevatedContainer(
                   child: Center(child: Text(subjects[index],style: TextStyle(fontSize: 14),)),

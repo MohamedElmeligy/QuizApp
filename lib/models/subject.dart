@@ -20,9 +20,9 @@ List<Subject> subjects_data = [
           Lesson(
             name: "Elements and Atom",
             material: [
-              PDFDocument.fromAsset('assets/test.pdf'),
-              PDFDocument.fromAsset('assets/test.pdf'),
-              PDFDocument.fromAsset('assets/test.pdf'),
+              PDFDocument.fromAsset('assets/pdfs/test.pdf'),
+              PDFDocument.fromAsset('assets/pdfs/test.pdf'),
+              PDFDocument.fromAsset('assets/pdfs/test.pdf'),
             ],
             quiz: [
               Question(

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.stemapp1">
    <application
-        android:label="stemapp1"
+        android:label="Super EDU"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
