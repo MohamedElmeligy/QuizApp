@@ -21,7 +21,6 @@ class _MyTopicsState extends State<Topics> {
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
     final double sh = MediaQuery.of(context).size.height;
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("Topics"),
@@ -67,17 +66,6 @@ class _MyTopicsState extends State<Topics> {
                 ),
               );
             },
-          ),
-          Positioned(
-            bottom: 5,
-            right: sw * 0.03,
-            child: FlatButton(
-              child: Text("Take Quiz"),
-              color: Theme.of(context).primaryColor,
-              onPressed: () {
-                Get.to(QuizScreen(widget.lessons[0].quiz));
-              },
-            ),
           ),
         ],
       ),

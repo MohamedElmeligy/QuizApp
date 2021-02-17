@@ -23,7 +23,7 @@ class QuizScreen extends StatelessWidget {
           FlatButton(onPressed: _controller.nextQuestion, child: Text("Skip")),
         ],
       ),
-      body: Body(),
+      body: Quiz(),
     );
   }
 }

@@ -25,7 +25,7 @@ class YearClassState extends State<YearClass> {
     final double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Learn and Train"),
+        title: Text("Studying year"),
       ),
       body: Stack(
         children: [

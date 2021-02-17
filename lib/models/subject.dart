@@ -7,7 +7,10 @@ import 'package:stemapp1/models/level.dart';
 class Subject {
   String name;
   List<Level> levels;
-  Subject({this.name, this.levels});
+  Subject({
+    this.name,
+    this.levels,
+  });
 }
 
 List<Subject> subjects_data = [

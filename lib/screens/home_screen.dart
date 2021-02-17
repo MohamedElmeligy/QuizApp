@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:stemapp1/providers/auth.dart';
 
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -26,11 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("ST Guide"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () => Provider.of<Auth>(context, listen: false).logout(),
+          ),
+        ],
       ),
       body: Stack(
         children: [
@@ -52,7 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Get.to(YearClass());
                 },
                 child: ElevatedContainer(
-                  child: Center(child: Text(subjects[index],style: TextStyle(fontSize: 14),)),
+                  child: Center(
+                      child: Text(
+                    subjects[index],
+                    style: TextStyle(fontSize: 14),
+                  )),
                   fillColor: Colors.white,
                 ),
               );
