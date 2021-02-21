@@ -8,8 +8,8 @@ import 'package:websafe_svg/websafe_svg.dart';
 import 'progress_bar.dart';
 import 'question_card.dart';
 
-class Body extends StatelessWidget {
-  const Body({
+class Quiz extends StatelessWidget {
+  const Quiz({
     Key key,
   }) : super(key: key);
 
@@ -19,7 +19,7 @@ class Body extends StatelessWidget {
     // So that we have acccess our controller
     QuestionController _questionController = Get.put(QuestionController());
     return Stack(
-      
+    
       children: [
         WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
         SafeArea(

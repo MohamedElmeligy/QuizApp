@@ -16,11 +16,12 @@ class AuthScreen extends StatelessWidget {
   final GlobalKey<FormFieldState> _emailKey = GlobalKey<FormFieldState>();
   final GlobalKey<FormFieldState> _passwordKey = GlobalKey<FormFieldState>();
 
+  String _name;
+  String _email;
+  String _password;
+
   @override
   Widget build(BuildContext context) {
-    String _name;
-    String _email;
-    String _password;
     Size deviceSize = MediaQuery.of(context).size;
     double sh = deviceSize.height;
     double sw = deviceSize.width;

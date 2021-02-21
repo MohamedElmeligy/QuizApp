@@ -86,7 +86,7 @@ class MyHomePage extends StatelessWidget {
                   }
                 });
           } else {
-            return HomeScreen();
+            return AuthScreen();
           }
         },
       ),
