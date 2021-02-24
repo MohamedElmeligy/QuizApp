@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+import 'package:stemapp1/screens/score/material_screen.dart';
 
 import '../models/Questions.dart';
 import '../screens/score/score_screen.dart';
@@ -25,9 +26,9 @@ class QuestionController extends GetxController
   set questions(List<Question> questions) => _questions = questions;
   List<Question> get questions => this._questions;
 
+  List<PDFDocument> _materials = [];
   PDFDocument _document = new PDFDocument();
-  set document(PDFDocument pdf) => _document = pdf;
-  PDFDocument get document => _document;
+  set materials(List<PDFDocument> pdf) => _materials = pdf;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -116,13 +117,18 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      document = await PDFDocument.fromAsset("assets/pdfs/test.pdf");
-      Get.to(ScoreScreen(_document));
+      if (correctAns / _questions.length <= 0.5)
+        _document = _materials[0];
+      else if (correctAns / _questions.length > 0.5 &&
+          correctAns / _questions.length < .85)
+        _document = _materials[1];
+      else if (correctAns / _questions.length > 0.85 &&
+          correctAns / _questions.length < .95) _document = _materials[2];
+      Get.to(MaterialScreen(_document));
     }
   }
 
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
-  
 }

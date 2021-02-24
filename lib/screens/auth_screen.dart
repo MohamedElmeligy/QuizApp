@@ -6,7 +6,6 @@ import '../providers/auth.dart';
 
 import '../components/custom_dialog.dart';
 
-import 'home_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   static const String routeName = "/AuthScreen";

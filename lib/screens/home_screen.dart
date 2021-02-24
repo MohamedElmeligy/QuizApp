@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("ST Guide"),
+        title: Text("Super EDU"),
         actions: [
           IconButton(
             icon: Icon(Icons.logout),

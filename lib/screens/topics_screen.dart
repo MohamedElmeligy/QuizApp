@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stemapp1/providers/question_controller.dart';
 
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../components/elevated_container.dart';
 import '../models/lesson.dart';
+import '../models/subject.dart';
 
 import './quiz/quiz_screen.dart';
 
@@ -17,6 +19,14 @@ class Topics extends StatefulWidget {
 }
 
 class _MyTopicsState extends State<Topics> {
+  QuestionController _questionController = Get.put(QuestionController());
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    init();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
@@ -36,6 +46,8 @@ class _MyTopicsState extends State<Topics> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
+                  _questionController.materials =
+                      widget.lessons[index].material;
                   Get.to(QuizScreen(widget.lessons[index].quiz));
                 },
                 child: ElevatedContainer(

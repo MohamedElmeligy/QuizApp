@@ -13,6 +13,14 @@ class Subject {
   });
 }
 
+PDFDocument pdf, pdf1, pdf2;
+
+Future<void> init() async {
+  pdf = await PDFDocument.fromAsset('assets/pdfs/test.pdf');
+  pdf1 = await PDFDocument.fromAsset('assets/pdfs/test.pdf');
+  pdf2 = await PDFDocument.fromAsset('assets/pdfs/test.pdf');
+}
+
 List<Subject> subjects_data = [
   Subject(
     name: "Chemistry",
@@ -22,11 +30,7 @@ List<Subject> subjects_data = [
         lessons: [
           Lesson(
             name: "Elements and Atom",
-            material: [
-              PDFDocument.fromAsset('assets/pdfs/test.pdf'),
-              PDFDocument.fromAsset('assets/pdfs/test.pdf'),
-              PDFDocument.fromAsset('assets/pdfs/test.pdf'),
-            ],
+            material: [pdf, pdf1, pdf2],
             quiz: [
               Question(
                 id: 1,
