@@ -20,12 +20,6 @@ class Topics extends StatefulWidget {
 
 class _MyTopicsState extends State<Topics> {
   QuestionController _questionController = Get.put(QuestionController());
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    init();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +40,7 @@ class _MyTopicsState extends State<Topics> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  _questionController.materials =
-                      widget.lessons[index].material;
+                  _questionController.materials = widget.lessons[index].material;
                   Get.to(QuizScreen(widget.lessons[index].quiz));
                 },
                 child: ElevatedContainer(

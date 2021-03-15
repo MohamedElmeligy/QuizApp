@@ -15,13 +15,7 @@ class Subject {
 
 PDFDocument pdf, pdf1, pdf2;
 
-Future<void> init() async {
-  pdf = await PDFDocument.fromAsset('assets/pdfs/test.pdf');
-  pdf1 = await PDFDocument.fromAsset('assets/pdfs/test.pdf');
-  pdf2 = await PDFDocument.fromAsset('assets/pdfs/test.pdf');
-}
-
-List<Subject> subjects_data = [
+List<Subject> subjectsData = [
   Subject(
     name: "Chemistry",
     levels: [
@@ -30,7 +24,10 @@ List<Subject> subjects_data = [
         lessons: [
           Lesson(
             name: "Elements and Atom",
-            material: [pdf, pdf1, pdf2],
+            material: [
+              'assets/pdfs/zeroToFour.pdf',
+              'assets/pdfs/fiveToSeven.pdf',
+            ],
             quiz: [
               Question(
                 id: 1,
@@ -90,6 +87,64 @@ List<Subject> subjects_data = [
                   "19 p, 20 n, 20 e",
                   "19 p, 20 n, 19 e",
                   "19 p, 20 n, 18 e",
+                ],
+              ),
+              Question(
+                id: 6,
+                question: "An ion is formed",
+                answer: 1,
+                options: [
+                  "By either adding or subtracting protons from the atom",
+                  "By either adding or subtracting electrons from the atom ",
+                  "By either adding or subtracting neutrons from the atom",
+                  "All of the above are true",
+                  "None of the above is true",
+                ],
+              ),
+              Question(
+                id: 7,
+                question: "All of the following are true except:",
+                answer: 1,
+                options: [
+                  "Ions are formed by adding electrons to a neutral atom",
+                  "Ions are formed by changing the number of protons in an atom's nucleus",
+                  "Ions are formed by removing electrons from a neutral atom",
+                  "An ion has a positive or negative charge",
+                  "Metals tend to form positive ions",
+                ],
+              ),
+              Question(
+                id: 8,
+                question: "The formula of water, H2O, suggests:",
+                answer: 1,
+                options: [
+                  "There is twice as much mass of hydrogen as oxygen in each molecule",
+                  "There are two hydrogen atoms and one oxygen atom per water molecule",
+                  "There is twice as much mass of oxygen as hydrogen in each molecule",
+                  "There are two oxygen atoms and one hydrogen atom per water molecule",
+                  "None of these",
+                ],
+              ),
+              Question(
+                id: 9,
+                question: "The nucleons are",
+                answer: 2,
+                options: [
+                  "Protons and electrons",
+                  "Protons and electrons",
+                  "Protons and neutrons",
+                  "None of these",
+                ],
+              ),
+              Question(
+                id: 10,
+                question: "The isotope deuterium of hydrogen has",
+                answer: 3,
+                options: [
+                  "No neutrons and one proton",
+                  "One neutron and two protons",
+                  "One electron and two neutrons",
+                  "One proton and one neutron",
                 ],
               ),
             ],

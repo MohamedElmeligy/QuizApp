@@ -3,7 +3,7 @@ import 'package:stemapp1/models/Questions.dart';
 
 class Lesson {
   String name;
-  List<PDFDocument> material;
+  List<String> material;
   List<Question> quiz;
   
   Lesson({

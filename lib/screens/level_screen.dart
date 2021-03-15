@@ -38,11 +38,11 @@ class YearClassState extends State<YearClass> {
               return GestureDetector(
                 onTap: () {
                   if (index == 0)
-                    Get.to(Topics(subjects.subjects_data[0].levels[0].lessons));
+                    Get.to(Topics(subjects.subjectsData[0].levels[0].lessons));
                   if (index == 1)
-                    Get.to(Topics(subjects.subjects_data[0].levels[0].lessons));
+                    Get.to(Topics(subjects.subjectsData[0].levels[0].lessons));
                   if (index == 2)
-                    Get.to(Topics(subjects.subjects_data[0].levels[0].lessons));
+                    Get.to(Topics(subjects.subjectsData[0].levels[0].lessons));
                 },
                 child: ElevatedContainer(
                   margin: EdgeInsets.symmetric(vertical: 10),

@@ -44,13 +44,17 @@ class ScoreScreen extends StatelessWidget {
                       .copyWith(color: kSecondaryColor),
                 ),
                 SizedBox(height: 50),
-                FlatButton(
-                  color: Colors.white,
-                  onPressed: () {
-                    Get.to(MaterialScreen(_material));
-                  },
-                  child: Text("improve your score with this material"),
-                ),
+                _qnController.numOfCorrectAns /
+                            _qnController.questions.length >=
+                        0.8
+                    ? Container()
+                    : FlatButton(
+                        color: Colors.white,
+                        onPressed: () {
+                          Get.to(MaterialScreen(_material));
+                        },
+                        child: Text("improve your score with this material"),
+                      ),
                 Spacer(
                   flex: 3,
                 ),

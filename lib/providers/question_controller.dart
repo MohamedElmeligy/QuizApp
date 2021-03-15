@@ -26,9 +26,9 @@ class QuestionController extends GetxController
   set questions(List<Question> questions) => _questions = questions;
   List<Question> get questions => this._questions;
 
-  List<PDFDocument> _materials = [];
+  List<String> _materials = [];
   PDFDocument _document = new PDFDocument();
-  set materials(List<PDFDocument> pdf) => _materials = pdf;
+  set materials(List<String> pdfs) => _materials = pdfs;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -43,8 +43,8 @@ class QuestionController extends GetxController
   RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => this._questionNumber;
 
-  int _numOfCorrectAns = 0;
-  int get numOfCorrectAns => this._numOfCorrectAns;
+  double _numOfCorrectAns = 0;
+  double get numOfCorrectAns => this._numOfCorrectAns;
 
   // called immediately after the widget is allocated memory
   @override
@@ -75,6 +75,7 @@ class QuestionController extends GetxController
   // }
 
   Future<bool> clear() async {
+    _animationController.reset();
     _animationController.dispose();
     _pageController.dispose();
     _questionNumber = 1.obs;
@@ -117,14 +118,14 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      if (correctAns / _questions.length <= 0.5)
-        _document = _materials[0];
-      else if (correctAns / _questions.length > 0.5 &&
-          correctAns / _questions.length < .85)
-        _document = _materials[1];
-      else if (correctAns / _questions.length > 0.85 &&
-          correctAns / _questions.length < .95) _document = _materials[2];
-      Get.to(MaterialScreen(_document));
+
+      if (_numOfCorrectAns / _questions.length < 0.5)
+        _document = await PDFDocument.fromAsset(_materials[0]);
+      else if (_numOfCorrectAns / _questions.length >= 0.5 &&
+          _numOfCorrectAns / _questions.length < .8)
+        _document = await PDFDocument.fromAsset(_materials[1]);
+
+      Get.to(ScoreScreen(_document));
     }
   }
 
